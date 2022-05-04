@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+      .container {
+        height: 100vh;
+        width: 100vw;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main {
+        display: flex;
+        height: 50vw;
+        height: 50vh;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .circle {
+        height: 150px;
+        width: 150px;
+        position: relative;
+      }
+      .circle span {
+        position: absolute;
+        left: 0;
+        top: calc(50% - 7.5px);
+        overflow: none;
+      }
+      .circle span:nth-child(n) {
+        transform: rotate(calc(var(--i) * 18deg));
+        transform-origin: 75px 7.5px;
+      }
+      .circle span::before {
+        content: '';
+        height: 15px;
+        width: 15px;
+        background-color: aqua;
+        border-radius: 50%;
+        position: absolute;
+        transform: scale(0.1);
+        animation: loading 1s infinite;
+      }
+      @keyframes loading {
+        0% {
+          transform: scale(0.1);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0.1);
+        }
+      }
+      .main .circle:last-child {
+        left: -15px;
+      }
+      .main .circle:first-child span:before {
+        animation-delay: calc(0.05s * var(--i)) !important;
+        /* background-color: red; */
+      }
+      .main .circle:last-child span::before {
+        animation-delay: calc(2s - 0.05s * var(--i)) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <div class="circle">
+          <span style="--i: 1"></span><span style="--i: 2"></span
+          ><span style="--i: 3"></span><span style="--i: 4"></span
+          ><span style="--i: 5"></span><span style="--i: 6"></span
+          ><span style="--i: 7"></span><span style="--i: 8"></span
+          ><span style="--i: 9"></span><span style="--i: 10"></span
+          ><span style="--i: 11"></span><span style="--i: 12"></span
+          ><span style="--i: 13"></span><span style="--i: 14"></span
+          ><span style="--i: 15"></span><span style="--i: 16"></span
+          ><span style="--i: 17"></span><span style="--i: 18"></span
+          ><span style="--i: 19"></span><span style="--i: 20"></span>
+        </div>
+        <div class="circle">
+          <span style="--i: 1"></span><span style="--i: 2"></span
+          ><span style="--i: 3"></span><span style="--i: 4"></span
+          ><span style="--i: 5"></span><span style="--i: 6"></span
+          ><span style="--i: 7"></span><span style="--i: 8"></span
+          ><span style="--i: 9"></span><span style="--i: 10"></span
+          ><span style="--i: 11"></span><span style="--i: 12"></span
+          ><span style="--i: 13"></span><span style="--i: 14"></span
+          ><span style="--i: 15"></span><span style="--i: 16"></span
+          ><span style="--i: 17"></span><span style="--i: 18"></span
+          ><span style="--i: 19"></span><span style="--i: 20"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+.d-flex{
+  display: flex;
+  flex-direction: row;
+}
+.d-flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
+$flexrowlayout: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around
+);
+
+$flexcollayout: (
+  center: center,
+  start: flex-start,
+  end: flex-end
+);
+
+@each $k,$v in $flexrowlayout{
+  .row-#{$k}{
+    justify-content: #{$v};
+  }
+}
+
+@each $k,$v in $flexcollayout{
+  .col-#{$k}{
+    align-items: #{$v};
+  }
+}
+
+@for $i from 1 through 4{
+	.m-#{$i}{
+		margin: calc(#{$i} * 10px);
+	}
+}
+@for $i from 1 through 4{
+	.p-#{$i}{
+		padding: calc(#{$i} * 10px);
+	}
+}
+// 类似对象但是通过()包裹，逗号分割
+$list: (
+	t: 'top',
+	l: 'left',
+	b: 'bottom',
+	r: 'right'
+);
+
+@each $k,$v in $list{
+  @for $i from 1 through 4{
+    .m-#{$v}-#{$i}{
+      margin-#{$v}: calc(#{$i} * 0.25rem);
+    }
+  }
+}
+
+@each $k,$v in $list{
+  @for $i from 1 through 4{
+    .p-#{$k}-#{$i}{
+      padding-#{$v}: calc(#{$i} * 0.25rem);
+    }
+  }
+}
