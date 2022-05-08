@@ -7,7 +7,7 @@
     "build": "prettier --write .;cross-env NODE_ENV=development vue-cli-service build",
     "lint": "vue-cli-service lint",
     "prettier": "prettier --write .",
-    "dev": "prettier --write .;cross-env NODE_ENV=development vue-cli-service serve"
+    "dev": "cross-env NODE_ENV=development vue-cli-service serve"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -28,10 +28,10 @@
     "@vue/compiler-sfc": "^3.0.0",
     "autoprefixer": "^10.4.7",
     "cross-env": "^7.0.3",
-    "node-sass": "^4.12.0",
     "postcss": "^8.4.13",
     "prettier": "^2.2.1",
-    "sass-loader": "^8.0.2",
+    "sass": "^1.51.0",
+    "sass-loader": "^10.2.0",
     "typescript": "~4.1.5",
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.19.3"

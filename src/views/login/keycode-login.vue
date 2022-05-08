@@ -15,20 +15,25 @@
 import { defineComponent, reactive, ref } from 'vue'
 import { RULES } from '@/common/validator'
 export default defineComponent({
-  setup() {
+  setup(props, {emit}) {
     const form = reactive({
       username: '',
       pwd: ''
     })
+    const isCorrect = ref(false)
     const rules = reactive({
       username: [{required: true, message: '请输入用户名', trigger: 'blur'}, {validator: RULES.username, message: "用户名应大于4小于8字符", trigger: ["change","blur"]}],
       pwd: [{required: true, message: '请输入密码', trigger: 'blur'}, {validator: RULES.username, message: "密码应大于6小于10字符", trigger: "change"}]
     })
     const labelPosition = ref('left')
+    const login = () => {
+      console.log('keycode login')
+    }
     return {
       labelPosition,
       form,
-      rules
+      rules,
+      login
     }
   }
 })

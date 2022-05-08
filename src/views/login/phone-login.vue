@@ -21,22 +21,31 @@ import { defineComponent, reactive, ref } from 'vue'
 import {RULES} from '@/common/validator'
 
 export default defineComponent({
-  setup() {
+  emits: ['loginResult'],
+  setup(props, {emit}) {
     const form = reactive({
       phone: '',
       code: ''
     })
+    const isCorrect = ref(false)
     const getCode = ref(false)
     const labelPosition = ref('left')
     const rules = reactive({
       phone: [{required:true, message: '请输入手机号'},{validator: RULES.phoneValid, message: '请输入正确的手机号', trigger:'change'}],
       code: [{required:true, message: '请输入验证码'}]
     })
+    const login = () => {
+      console.log('phonelogin')
+      emit('loginResult', isCorrect.value)
+    }
+
     return {
       labelPosition,
       form,
       rules,
-      getCode
+      getCode,
+      login,
+      isCorrect,
     }
   }
 })
